@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include "pdb.h"
+#include "unistd.h"
 
 using namespace std;
 pdb::pdb(){
@@ -32,8 +33,13 @@ void pdb::parse(string id){
 			tmp_atom.x = atof(line.substr(30,8).c_str());
 			tmp_atom.y = atof(line.substr(38,8).c_str());
 			tmp_atom.z = atof(line.substr(46,8).c_str());
+			tmp_atom.opy = atof(line.substr(54,6).c_str());
+			tmp_atom.tmpf = atof(line.substr(60,6).c_str());
 			tmp_atom.res = line.substr(17,3);
+			tmp_atom.atomname = line.substr(12,4);
+			tmp_atom.chain = line.substr(21,1);
 			tmp_atom.resnum = atoi(line.substr(22,4).c_str());
+			tmp_atom.atomnum = atoi(line.substr(6,5).c_str());
 
 			ivec.push_back(tmp_atom);
 
@@ -47,8 +53,11 @@ void pdb::parse(string id){
 	// Start parsing PDB Info
 	//
 	for(vector<struct pdb_atom>::iterator it = ivec.begin();it != ivec.end();it++){
-		cout << "Tets> " << it->res << " :: " << it->resnum << "\t" << it->x << "\t" << it->y << "\t" << it->z << endl;
+		cout << "Tets> " << it->chain << "\t" << it->atomnum << "\t" << it->atomname << "\t" << it->res << "\t" 
+			<< it->resnum << "\t" << it->x << "\t" << it->y << "\t" << it->z << "\t" << it->opy << "\t" << it->tmpf << endl;
 	}
+
+	usleep(10000000);
 }
 
 void pdb::residue_analysis(void){

@@ -13,6 +13,11 @@ struct pdb_atom {
 	double x;
 	double y;
 	double z;
+	double opy;
+	double tmpf;
 	string res;
+	string atomname;
+	string chain;
 	int resnum;
+	int atomnum;
 };

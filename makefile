@@ -4,7 +4,7 @@ OBJS = src/main.o src/pdb.o
 EXE = main
 
 all: ${OBJS}
-	${CC} -o ${EXE} ${LIBS} ${OBJS}
+	${CC} -g -o ${EXE} ${LIBS} ${OBJS}
 
 *.o: *.cpp
 	${CC} $< -c
