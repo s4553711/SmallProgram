@@ -12,12 +12,13 @@ int main (int argc, char* argv[])
 	cout << "COMMT> Argument #: " << argc << endl;
 
 	for(int i = 0; i < argc; i++){
-		cout << "COMMT> Arg"<< i << " : " << argv[1] << endl;
+		cout << "COMMT> Command "<< i << " : " << argv[i] << endl;
 	}
 
 	pdb* pdb_reader = new pdb();
 	pdb_reader->get_atom();
 	pdb_reader->parse("1air");
+	//pdb_reader->display();
 
 	delete pdb_reader;
 

@@ -2,7 +2,6 @@
 #include <fstream>
 #include <cstdlib>
 #include <string>
-#include <vector>
 #include "pdb.h"
 #include "unistd.h"
 
@@ -17,15 +16,12 @@ void pdb::parse(string id){
 
 	cout << "Parse Start: " << id << endl;
 	
-	vector<struct pdb_atom> ivec;
-
 	string line = "";
 	ifstream file;
 	file.open("1air.pdb",ios::in);
 
 	while(!file.eof()) {
 		getline(file,line);
-		string str2 = line.substr (0,12);
 
 		if (line != "" && line.substr(0,6) == "ATOM  ") {
 			struct pdb_atom tmp_atom;
@@ -42,24 +38,24 @@ void pdb::parse(string id){
 			tmp_atom.atomnum = atoi(line.substr(6,5).c_str());
 
 			ivec.push_back(tmp_atom);
-
 		}
 	}
 
 	file.close();
 	cout << "Parse exit " << endl;
+}
 
-	//
+void pdb::display(void){
+
 	// Start parsing PDB Info
-	//
 	for(vector<struct pdb_atom>::iterator it = ivec.begin();it != ivec.end();it++){
 		cout << "Tets> " << it->chain << "\t" << it->atomnum << "\t" << it->atomname << "\t" << it->res << "\t" 
 			<< it->resnum << "\t" << it->x << "\t" << it->y << "\t" << it->z << "\t" << it->opy << "\t" << it->tmpf << endl;
 	}
 
-	usleep(10000000);
+	//usleep(10000000);
 }
 
-void pdb::residue_analysis(void){
+void pdb::calc_phipsi(void){
 
 }

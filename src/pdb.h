@@ -1,12 +1,16 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 class pdb {
+	private:
+		vector<struct pdb_atom> ivec;
 	public:
 		pdb();
 		void get_atom(void);
 		void parse(string id);
-		void residue_analysis(void);
+		void calc_phipsi(void);
+		void display(void);
 };
 
 struct pdb_atom {
