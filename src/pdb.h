@@ -5,6 +5,7 @@ using namespace std;
 class pdb {
 	private:
 		vector<struct pdb_atom> ivec;
+
 	public:
 		pdb();
 		void get_atom(void);

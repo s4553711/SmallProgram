@@ -18,7 +18,8 @@ int main (int argc, char* argv[])
 	pdb* pdb_reader = new pdb();
 	pdb_reader->get_atom();
 	pdb_reader->parse("1air");
-	//pdb_reader->display();
+	pdb_reader->display();
+	pdb_reader->calc_phipsi();
 
 	delete pdb_reader;
 

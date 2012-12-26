@@ -49,8 +49,9 @@ void pdb::display(void){
 
 	// Start parsing PDB Info
 	for(vector<struct pdb_atom>::iterator it = ivec.begin();it != ivec.end();it++){
-		cout << "Tets> " << it->chain << "\t" << it->atomnum << "\t" << it->atomname << "\t" << it->res << "\t" 
-			<< it->resnum << "\t" << it->x << "\t" << it->y << "\t" << it->z << "\t" << it->opy << "\t" << it->tmpf << endl;
+		cout << "Tets> " << it->chain << "\t" << it->atomnum << "\t" << it->atomname 
+			<< "\t" << it->res << "\t" << it->resnum << "\t" << it->x << "\t" << it->y 
+			<< "\t" << it->z << "\t" << it->opy << "\t" << it->tmpf << endl;
 	}
 
 	//usleep(10000000);
@@ -58,4 +59,12 @@ void pdb::display(void){
 
 void pdb::calc_phipsi(void){
 
+	int i = 99999;
+
+	struct pdb_atom pC0, pN, pCA, pC1;
+	struct pdb_atom sN0, sCA, sC0, sN1;
+
+	for(vector<struct pdb_atom>::iterator it = ivec.begin();it != ivec.end();it++){
+
+	}
 }
