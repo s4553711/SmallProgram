@@ -4,6 +4,7 @@
 #include <string>
 #include "pdb.h"
 #include "unistd.h"
+#include <math.h>
 
 using namespace std;
 pdb::pdb(){
@@ -67,4 +68,22 @@ void pdb::calc_phipsi(void){
 	for(vector<struct pdb_atom>::iterator it = ivec.begin();it != ivec.end();it++){
 
 	}
+}
+
+void pdb::dihedral(pdb_atom &a, pdb_atom &b, pdb_atom &c, pdb_atom &d){
+
+	float v1_x = b.x - a.x;
+	float v1_y = b.y - a.y;
+	float v1_z = b.z - a.z;
+
+	float normal_v1_length = 0;
+
+	float v2_x = c.x - b.x;
+	float v2_y = c.y - b.y;
+	float v2_z = c.z - b.z;
+
+	float v3_x = d.x - c.x;
+	float v3_y = d.y - c.y;
+	float v3_z = d.z - c.z;
+
 }

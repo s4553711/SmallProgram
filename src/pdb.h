@@ -12,6 +12,7 @@ class pdb {
 		void parse(string id);
 		void calc_phipsi(void);
 		void display(void);
+		void dihedral(pdb_atom&, pdb_atom&, pdb_atom&, pdb_atom&);
 };
 
 struct pdb_atom {
